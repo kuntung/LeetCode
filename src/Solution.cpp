@@ -459,3 +459,87 @@ string Solution::largestNumber(vector<int>& nums)
     for_each(nums.rbegin(), nums.rend(), [&s](int& i){ s+= to_string(i);});
     return s;
 }
+
+//二叉树的右根左遍历序列
+void Solution::myBackorder(TreeNode* root)
+{
+    if(!root) return; //判断树是否为空
+    stack<TreeNode*> st;
+    TreeNode* cur = root;
+    while(!st.empty() || cur)
+    {
+        while(cur)
+        {
+            st.push(cur);
+            cur = cur->right;
+        }
+        TreeNode* temp = st.top(); //这里是对栈顶元素进行操作，记录当前的值
+        // if(res.empty()) res.push_back(temp->val);
+        // else res.push_back(*res.rbegin() - temp->val);
+        res.push_back(temp->val);
+        st.pop();
+        if(temp->left) cur = temp->left; //当前temp左子树为空，判断右子树是否为空，如果为空，则
+                                            //cur可以实现遍历下一个栈顶元素的右子树
+    }
+}
+
+//记录节点
+int Solution::withPreNode(TreeNode* root)
+{
+    if(!root) return INT_MAX; //判断树是否为空
+    stack<TreeNode*> st;
+    TreeNode* cur = root;
+    TreeNode* pre = nullptr;
+    int resMin = INT_MAX;
+    while(!st.empty() || cur)
+    {
+        while(cur)
+        {
+            st.push(cur);
+            cur = cur->right;
+        }
+        TreeNode* temp = st.top(); //这里是对栈顶元素进行操作，记录当前的值
+        if(pre) resMin = min(resMin, pre->val - temp->val);
+        st.pop();
+        pre = temp;
+        if(temp->left) cur = temp->left; //当前temp左子树为空，判断右子树是否为空，如果为空，则
+                                            //cur可以实现遍历下一个栈顶元素的右子树
+    }
+
+    return resMin;
+}
+
+string Solution::longestPalindrome(string s)
+{
+    string res="";//存放结果
+    string temp="";//存放子串
+    for(int i=0;i<s.length();i++)
+    {
+        for(int j=i;j<s.length();j++)
+        {
+            temp=temp+s[j];
+            string tem=temp;//tem存放子串反转结果
+            std::reverse(tem.begin(),tem.end());//反转
+            if(temp==tem)
+                res=res.length()>temp.length()?res:temp;
+        }
+        temp="";
+    }
+    return res;
+}
+
+//寻找重复数
+int Solution::findDuiplicate(vector<int>& nums)
+{
+    int x = 0;
+    for(int i = 1; i < nums.size(); i++)
+    {
+        x^= i;
+    }
+    for(auto i: nums)
+    {
+        x = x^i;
+    }
+
+    return x;
+}

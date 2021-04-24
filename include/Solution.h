@@ -43,5 +43,21 @@ public:
     bool isBalanced(TreeNode* root); //判断平衡二叉树
     int getHeight(TreeNode* root); //获取子树的最大深度
     string largestNumber(vector<int>& nums); //最大数
+    void myBackorder(TreeNode* root); //二叉树的右根左遍历序列
+    int withPreNode(TreeNode* root); //记录节点的操作
+    string longestPalindrome(string s); //最长回文子串
+    int findDuiplicate(vector<int>& nums); //寻找重复数
+
+public:
+    void printVec()
+    {
+        for(int i:res)
+        {
+            cout << i << ", ";
+        }
+        cout << endl;
+    }
+private:
+    vector<int> res;
 
 };

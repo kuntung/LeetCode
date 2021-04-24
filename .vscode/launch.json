@@ -9,6 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/TESTFILE",
+            // "program": "${workspaceFolder}/algorithms/KMP.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

@@ -13,8 +13,22 @@ using namespace std;
 int main(int argc, char** argv)
 {
     Solution* test_solution = new Solution();
-    vector<int> v{10,2,11,3,6};
-    test_solution->largestNumber(v); //最大数
+
+    vector<int> nums{1,3,4,2,2};
+    test_solution->findDuiplicate(nums); //寻找重复数
+    
+    // string s = "solution";
+    // string res = test_solution->longestPalindrome(s);
+
+    // TreeNode* left = new TreeNode(2, new TreeNode(1), new TreeNode(3));
+    // TreeNode* right = new TreeNode(6);
+    // TreeNode* root = new TreeNode(4, left, right);
+
+    // test_solution->withPreNode(root);
+    // test_solution->printVec();
+    // vector<int> v{10,2,11,3,6};
+    // test_solution->largestNumber(v); //最大数
+
     // test_solution->nthUglyNumber(10); //第10个丑数
 
     // vector<int> answers = {0, 0, 1, 1, 1};
