@@ -8,8 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "F:/GitHub/LeetCode/main.cpp" "CMakeFiles/TESTFILE.dir/main.cpp.obj" "gcc" "CMakeFiles/TESTFILE.dir/main.cpp.obj.d"
-  "F:/GitHub/LeetCode/src/Solution.cpp" "CMakeFiles/TESTFILE.dir/src/Solution.cpp.obj" "gcc" "CMakeFiles/TESTFILE.dir/src/Solution.cpp.obj.d"
+  "F:/GitHub/LeetCode/main.cpp" "CMakeFiles/TESTSTOCK.dir/main.cpp.obj" "gcc" "CMakeFiles/TESTSTOCK.dir/main.cpp.obj.d"
+  "F:/GitHub/LeetCode/src/STOCK.cpp" "CMakeFiles/TESTSTOCK.dir/src/STOCK.cpp.obj" "gcc" "CMakeFiles/TESTSTOCK.dir/src/STOCK.cpp.obj.d"
+  "F:/GitHub/LeetCode/src/Solution.cpp" "CMakeFiles/TESTSTOCK.dir/src/Solution.cpp.obj" "gcc" "CMakeFiles/TESTSTOCK.dir/src/Solution.cpp.obj.d"
   )
 
 # Targets to which this target links.

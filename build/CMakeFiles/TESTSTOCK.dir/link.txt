@@ -1,0 +1,3 @@
+E:\cmake\bin\cmake.exe -E rm -f CMakeFiles\TESTSTOCK.dir/objects.a
+E:\PROGRA~1\mingw64\bin\ar.exe cr CMakeFiles\TESTSTOCK.dir/objects.a @CMakeFiles\TESTSTOCK.dir\objects1.rsp
+E:\PROGRA~1\mingw64\bin\G__~1.EXE -Wl,--whole-archive CMakeFiles\TESTSTOCK.dir/objects.a -Wl,--no-whole-archive -o TESTSTOCK.exe -Wl,--out-implib,libTESTSTOCK.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\TESTSTOCK.dir\linklibs.rsp

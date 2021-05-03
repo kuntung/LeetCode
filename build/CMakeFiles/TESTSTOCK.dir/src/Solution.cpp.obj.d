@@ -1,4 +1,4 @@
-CMakeFiles/TESTFILE.dir/src/Solution.cpp.obj: \
+CMakeFiles/TESTSTOCK.dir/src/Solution.cpp.obj: \
  F:\GitHub\LeetCode\src\Solution.cpp \
  F:/GitHub/LeetCode/include/Solution.h \
  E:/PROGRA~1/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/vector \
@@ -154,4 +154,8 @@ CMakeFiles/TESTFILE.dir/src/Solution.cpp.obj: \
  E:/PROGRA~1/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_set.h \
  E:/PROGRA~1/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multiset.h \
  E:/PROGRA~1/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/queue \
- E:/PROGRA~1/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_queue.h
+ E:/PROGRA~1/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_queue.h \
+ E:/PROGRA~1/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/unordered_map \
+ E:/PROGRA~1/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hashtable.h \
+ E:/PROGRA~1/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hashtable_policy.h \
+ E:/PROGRA~1/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/unordered_map.h
