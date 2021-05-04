@@ -543,3 +543,135 @@ int Solution::findDuiplicate(vector<int>& nums)
 
     return x;
 }
+
+//递增顺序搜索树
+TreeNode* Solution::increasingBST(TreeNode* root)
+{
+    //递归
+    // if(!root) return nullptr;
+    // TreeNode* inorder = new TreeNode(0);
+    // TreeNode* cur = inorder;
+    // inOrder(root);
+    // printInorder();
+    // for(auto& node : dq)
+    // {
+    //     cur->left = nullptr;
+    //     cur->right = dq.front();
+    //     cur = cur->right;
+    //     dq.pop_front();
+    // }
+    // return inorder->right;
+
+    //迭代
+    if(!root) return nullptr;
+    stack<TreeNode*> st;
+    TreeNode* res = new TreeNode(0); //哑结点
+    TreeNode* pre = res;
+    TreeNode* cur = root;
+    while(!st.empty() || cur)
+    {
+        while(cur)
+        {
+            st.push(cur);
+            cur = cur->left;
+        }
+        TreeNode* temp = st.top();
+        st.pop();
+        pre->left = nullptr;
+        pre->right = temp;
+        pre = pre->right;
+        if(temp->right) cur = temp->right;
+    }
+
+    return res->right;
+}
+
+
+//平方数之和
+bool Solution::judgeSquareSum(int c)
+{
+    if(c == 0) return false;
+        for(int i = 0; i < c; i++)
+        {
+            int temp = c - i*i;
+            if(temp < 0) return false;
+            int left = i, right = c;
+            while(left < right)
+            {
+                int mid = left + (right - left)/2;
+                if(temp == mid*mid) return true;
+                if(temp > mid*mid) left = mid + 1;
+                else right = mid;
+            }
+            if(temp == left*left) return true;
+        }
+
+    return false;
+}
+
+
+//整数拆分代码示例
+int Solution::integerBreak(int n){
+    vector<int> res(n + 1, 1);
+    for(int i = 3; i <= n; ++i)
+    {
+        for(int j = i - 1; j >=i/2; --j)
+        {
+            auto temp = {res[i], j*(max(i-j, res[i-j]), (i-j)*max(j, res[j]))};
+            res[i] = *max_element(temp.begin(), temp.end());
+        }
+    }
+
+    return res[n-1];
+}
+
+//零钱兑换
+int Solution::coinChange(vector<int>& coins, int amount) {
+    int size = coins.size();
+    vector<int> cnt(size);
+    int res = 0;
+    sort(coins.rbegin(), coins.rend());
+    for(int i = 0; i < size; ++i)
+    {
+        cnt[i] = amount/coins[i];
+        amount -= cnt[i]*coins[i];
+        res+= cnt[i];
+        if(amount == 0) return res;
+    }
+    return -1;
+    }
+
+
+//员工的重要性
+int Solution::getImportance(vector<Employee*> employees, int id) {
+    //树的前序遍历
+    for(auto elem : employees) mp[elem->id] = elem;
+    deque<Employee*> dq;
+    dq.emplace_back(mp[id]);
+    int res = 0;
+    while(!dq.empty())
+    {
+        Employee* first = dq.front();
+        dq.pop_front();
+        res += first->importance;
+        for(int sub : first->subordinates)
+        {
+            dq.emplace_back(mp[sub]);
+        }
+    }
+
+    return res;
+}
+
+int Solution::reverse(int x)
+{
+    int ans = 0;
+    while (x != 0) {
+        if (x > 0 && ans > (INT_MAX - x % 10) / 10) return 0;
+        if (x < 0 && ans < (INT_MIN - x % 10) / 10) return 0;
+        ans = ans * 10 + x % 10;
+        x /= 10;
+    }
+    return ans;
+    
+}

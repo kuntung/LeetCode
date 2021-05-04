@@ -1,4 +1,5 @@
 #include "Solution.h"
+#include "STOCK.h"
 #include <iostream>
 #include <string>
 #include <typeinfo>
@@ -9,13 +10,43 @@
 
 using namespace std;
 
+void testSTOCK()
+{
+    Stock stock;
+    vector<int> prices{7,1,5,3,6,4};
+    stock.maxProfit(prices);
+    cout << "build bad!" <<endl;
+}
 
+
+void testIntMod()
+{
+    int x = -123;
+    cout << x%10 << endl;
+}
 int main(int argc, char** argv)
 {
     Solution* test_solution = new Solution();
 
-    vector<int> nums{1,3,4,2,2};
-    test_solution->findDuiplicate(nums); //寻找重复数
+    test_solution->reverse(int(-123)); //整数反转
+    // testSTOCK();
+    testIntMod();
+
+    // vector<int> coins{186, 419, 83, 408};
+    // test_solution->coinChange(coins, 6249);
+
+    // test_solution->integerBreak(8); //整数拆分
+    // test_solution->judgeSquareSum(4);
+
+
+    // TreeNode* left = new TreeNode(1); 
+    // TreeNode* right = new TreeNode(4, new TreeNode(3), nullptr);
+    // TreeNode* root = new TreeNode(2, left, right);
+
+    // TreeNode* temp = test_solution->increasingBST(root);
+
+    // vector<int> nums{1,3,4,2,2};
+    // test_solution->findDuiplicate(nums); //寻找重复数
     
     // string s = "solution";
     // string res = test_solution->longestPalindrome(s);
