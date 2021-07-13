@@ -62,7 +62,7 @@ CMAKE_BINARY_DIR = F:\GitHub\LeetCode\build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/TESTSTOCK.dir/all
+all: CMakeFiles/TESTFILE.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -70,34 +70,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/TESTSTOCK.dir/clean
+clean: CMakeFiles/TESTFILE.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/TESTSTOCK.dir
+# Target rules for target CMakeFiles/TESTFILE.dir
 
 # All Build rule for target.
-CMakeFiles/TESTSTOCK.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTSTOCK.dir\build.make CMakeFiles/TESTSTOCK.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTSTOCK.dir\build.make CMakeFiles/TESTSTOCK.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=F:\GitHub\LeetCode\build\CMakeFiles --progress-num=1,2,3,4 "Built target TESTSTOCK"
-.PHONY : CMakeFiles/TESTSTOCK.dir/all
+CMakeFiles/TESTFILE.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTFILE.dir\build.make CMakeFiles/TESTFILE.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTFILE.dir\build.make CMakeFiles/TESTFILE.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=F:\GitHub\LeetCode\build\CMakeFiles --progress-num=1,2,3,4 "Built target TESTFILE"
+.PHONY : CMakeFiles/TESTFILE.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/TESTSTOCK.dir/rule: cmake_check_build_system
+CMakeFiles/TESTFILE.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start F:\GitHub\LeetCode\build\CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/TESTSTOCK.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/TESTFILE.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start F:\GitHub\LeetCode\build\CMakeFiles 0
-.PHONY : CMakeFiles/TESTSTOCK.dir/rule
+.PHONY : CMakeFiles/TESTFILE.dir/rule
 
 # Convenience name for target.
-TESTSTOCK: CMakeFiles/TESTSTOCK.dir/rule
-.PHONY : TESTSTOCK
+TESTFILE: CMakeFiles/TESTFILE.dir/rule
+.PHONY : TESTFILE
 
 # clean rule for target.
-CMakeFiles/TESTSTOCK.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTSTOCK.dir\build.make CMakeFiles/TESTSTOCK.dir/clean
-.PHONY : CMakeFiles/TESTSTOCK.dir/clean
+CMakeFiles/TESTFILE.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTFILE.dir\build.make CMakeFiles/TESTFILE.dir/clean
+.PHONY : CMakeFiles/TESTFILE.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

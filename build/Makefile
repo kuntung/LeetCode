@@ -64,16 +64,6 @@ CMAKE_BINARY_DIR = F:\GitHub\LeetCode\build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	E:\cmake\bin\cmake.exe --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -83,6 +73,16 @@ edit_cache:
 # Special rule for the target edit_cache
 edit_cache/fast: edit_cache
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	E:\cmake\bin\cmake.exe --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -116,24 +116,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named TESTSTOCK
+# Target rules for targets named TESTFILE
 
 # Build rule for target.
-TESTSTOCK: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 TESTSTOCK
-.PHONY : TESTSTOCK
+TESTFILE: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 TESTFILE
+.PHONY : TESTFILE
 
 # fast build rule for target.
-TESTSTOCK/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTSTOCK.dir\build.make CMakeFiles/TESTSTOCK.dir/build
-.PHONY : TESTSTOCK/fast
+TESTFILE/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTFILE.dir\build.make CMakeFiles/TESTFILE.dir/build
+.PHONY : TESTFILE/fast
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTSTOCK.dir\build.make CMakeFiles/TESTSTOCK.dir/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTFILE.dir\build.make CMakeFiles/TESTFILE.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -141,7 +141,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTSTOCK.dir\build.make CMakeFiles/TESTSTOCK.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTFILE.dir\build.make CMakeFiles/TESTFILE.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -149,7 +149,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTSTOCK.dir\build.make CMakeFiles/TESTSTOCK.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTFILE.dir\build.make CMakeFiles/TESTFILE.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 src/STOCK.obj: src/STOCK.cpp.obj
@@ -157,7 +157,7 @@ src/STOCK.obj: src/STOCK.cpp.obj
 
 # target to build an object file
 src/STOCK.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTSTOCK.dir\build.make CMakeFiles/TESTSTOCK.dir/src/STOCK.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTFILE.dir\build.make CMakeFiles/TESTFILE.dir/src/STOCK.cpp.obj
 .PHONY : src/STOCK.cpp.obj
 
 src/STOCK.i: src/STOCK.cpp.i
@@ -165,7 +165,7 @@ src/STOCK.i: src/STOCK.cpp.i
 
 # target to preprocess a source file
 src/STOCK.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTSTOCK.dir\build.make CMakeFiles/TESTSTOCK.dir/src/STOCK.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTFILE.dir\build.make CMakeFiles/TESTFILE.dir/src/STOCK.cpp.i
 .PHONY : src/STOCK.cpp.i
 
 src/STOCK.s: src/STOCK.cpp.s
@@ -173,7 +173,7 @@ src/STOCK.s: src/STOCK.cpp.s
 
 # target to generate assembly for a file
 src/STOCK.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTSTOCK.dir\build.make CMakeFiles/TESTSTOCK.dir/src/STOCK.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTFILE.dir\build.make CMakeFiles/TESTFILE.dir/src/STOCK.cpp.s
 .PHONY : src/STOCK.cpp.s
 
 src/Solution.obj: src/Solution.cpp.obj
@@ -181,7 +181,7 @@ src/Solution.obj: src/Solution.cpp.obj
 
 # target to build an object file
 src/Solution.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTSTOCK.dir\build.make CMakeFiles/TESTSTOCK.dir/src/Solution.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTFILE.dir\build.make CMakeFiles/TESTFILE.dir/src/Solution.cpp.obj
 .PHONY : src/Solution.cpp.obj
 
 src/Solution.i: src/Solution.cpp.i
@@ -189,7 +189,7 @@ src/Solution.i: src/Solution.cpp.i
 
 # target to preprocess a source file
 src/Solution.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTSTOCK.dir\build.make CMakeFiles/TESTSTOCK.dir/src/Solution.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTFILE.dir\build.make CMakeFiles/TESTFILE.dir/src/Solution.cpp.i
 .PHONY : src/Solution.cpp.i
 
 src/Solution.s: src/Solution.cpp.s
@@ -197,7 +197,7 @@ src/Solution.s: src/Solution.cpp.s
 
 # target to generate assembly for a file
 src/Solution.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTSTOCK.dir\build.make CMakeFiles/TESTSTOCK.dir/src/Solution.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TESTFILE.dir\build.make CMakeFiles/TESTFILE.dir/src/Solution.cpp.s
 .PHONY : src/Solution.cpp.s
 
 # Help Target
@@ -208,7 +208,7 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... TESTSTOCK
+	@echo ... TESTFILE
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

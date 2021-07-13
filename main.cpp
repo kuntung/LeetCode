@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <numeric>
 #include <functional>
+#include <cstring>
 
 using namespace std;
 
@@ -24,13 +25,55 @@ void testIntMod()
     int x = -123;
     cout << x%10 << endl;
 }
+
+
 int main(int argc, char** argv)
 {
     Solution* test_solution = new Solution();
 
-    test_solution->reverse(int(-123)); //整数反转
-    // testSTOCK();
-    testIntMod();
+    // 和相同的二元子数组
+    vector<int> nums = {1, 0, 1, 0, 1};
+    test_solution->numSubarraysWithSum(nums, 2);
+    // 错误的集合
+    // vector<int> nums = {2, 3, 2};
+    // test_solution->findErrorNums(nums);
+
+    // // 877. 石子游戏
+    // vector<int> piles = {5, 3, 4, 5};
+
+    // test_solution->stoneGame(piles);
+
+    //525.连续数组
+    // vector<int> nums = {0,1,0};
+    // test_solution->findMaxLength(nums);
+
+    // //连续的子数组和
+    // vector<int> nums{23, 2, 4, 6, 6};
+
+    // test_solution->checkSubarraySum(nums, 7);
+
+    // //找出第K大的异或坐标值
+    // vector<vector<int>> matix = {{10,9,5},{2,0,4},{1,0,9},{3,4,8}};
+    // test_solution->kthLargestValue(matix, 10);
+    // //形成两个异或相等数组的三元组数目
+    // vector<int> nums  ={1,1,1,1,1};
+    // test_solution->countTriplets(nums);
+
+    //前k个高频词代码测试
+    // vector<string> words = {"i", "love", "leetcode", "i", "love", "coding"};
+    // test_solution->topKFrequent(words, 2);
+    // TreeNode* left = new TreeNode(2, nullptr, new TreeNode(4)); 
+    // TreeNode* right = new TreeNode(3, nullptr, new TreeNode(5));
+    // TreeNode* root = new TreeNode(1, left, right);
+
+    // TreeNode* left = new TreeNode(2, new TreeNode(4), nullptr); 
+    // TreeNode* right = new TreeNode(3);
+    // TreeNode* root = new TreeNode(1, left, right);
+
+    // test_solution->isCousins(root, 4, 3);
+    // test_solution->reverse(int(-123)); //整数反转
+    // // testSTOCK();
+    // testIntMod();
 
     // vector<int> coins{186, 419, 83, 408};
     // test_solution->coinChange(coins, 6249);

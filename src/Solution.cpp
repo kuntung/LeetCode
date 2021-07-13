@@ -1,4 +1,5 @@
 #include "Solution.h"
+#include <cstring>
 
 using namespace std;
 
@@ -674,4 +675,211 @@ int Solution::reverse(int x)
     }
     return ans;
     
+}
+
+//二叉树的堂兄弟节点
+bool Solution::isCousins(TreeNode* root, int x, int y)
+{
+    deque<pair<TreeNode*, int>> dq;
+    pair<TreeNode*, int> xPar, yPar;
+    int level = 0;
+    dq.emplace_back(make_pair(root, level));
+    while(!dq.empty())
+    {
+        auto temp = dq.front();
+        dq.pop_front();
+        level = temp.second+1;
+        if(xPar.first && yPar.first) break;
+        if(temp.first->left) 
+        {
+            if(temp.first->left->val == x) xPar = temp;
+            if(temp.first->left->val == y) yPar = temp;
+            dq.emplace_back(make_pair(temp.first->left, level));
+        }
+        if(temp.first->right)
+        {
+            if(temp.first->right->val == x) xPar = temp;
+            if(temp.first->right->val == y) yPar = temp;
+            dq.emplace_back(make_pair(temp.first->right, level));
+        }
+    }
+    return xPar.second == yPar.second && xPar.first->val != yPar.first->val;
+}
+
+//前K个高频词
+vector<string> Solution::topKFrequent(vector<string>& words, int k) {
+    typedef pair<string, int> PAIR;
+    map<string, int> mp;
+    for(auto& word: words)
+    {
+        mp[word]++;
+    }
+
+    vector<string> res;
+    auto cur = mp.begin();
+    for(int i = 0; i < k; i++)
+    {
+        res.emplace_back(cur->first);
+        advance(cur, 1);
+    }
+    return res;
+}
+
+int Solution::countTriplets(vector<int>& arr) {
+    int num = arr.size();
+    if(num < 2) return 0;
+    unordered_map<int, vector<int>> mp;
+    int res = 0;
+    for(int i = 0; i < num; i++)
+    {
+        if(i > 0)
+        {
+            arr[i] ^= arr[i-1];
+        }
+        if(arr[i] == 0) res += i;
+        else if(mp.count(arr[i]) == 1)
+        {
+            auto vec = mp[arr[i]];
+            for(int index: vec)
+            {
+                res += i - index - 1;
+            }
+        }
+        mp[arr[i]].push_back(i);
+    }
+    return res;
+}
+
+//找出第K大的异或坐标值
+int Solution::kthLargestValue(vector<vector<int>>& matrix, int k) {
+    int m = matrix.size(), n = matrix[0].size();
+    multiset<int, greater<int>> st;
+    st.insert(matrix[0][0]);
+    for(int i = 1; i < m;i++)
+    {
+        matrix[i][0] ^= matrix[i-1][0];
+        st.insert(matrix[i][0]);
+    }
+    for(int j = 1; j < n; j++)
+    {
+        matrix[0][j] ^= matrix[0][j-1];
+        st.insert(matrix[0][j]);
+    }
+    for(int i = 1; i < m; i++)
+    {
+        for(int j = 1; j < n; j++)
+        {
+            matrix[i][j] ^= matrix[i-1][j-1] ^ matrix[i-1][j]^ matrix[i][j-1];
+            st.insert(matrix[i][j]);
+        }
+    }
+    auto begin = st.begin();
+    advance(begin, k-1);
+    return *begin;
+}
+
+//连续的子数组和
+bool Solution::checkSubarraySum(vector<int>& nums, int k) {
+    for(int i = 1; i < nums.size(); i++)
+        nums[i] += nums[i-1]; //前缀和
+    set<int> modset;
+    modset.insert(0);
+    for(int i = 2; i < nums.size(); i++)
+    {
+        if(modset.count(nums[i-2]%k) == 0) return true;
+        modset.insert(nums[i-2]%k);
+        if(modset.count(nums[i]%k)) return true;
+    }
+
+    return false;
+}
+
+// 连续数组
+int Solution::findMaxLength(vector<int>& nums) {
+    int res = 0, n = nums.size();
+    int preSum[n+1];
+    memset(preSum, 0, sizeof(preSum));
+    for(int i = 1; i < n; ++i)
+        preSum[i] = preSum[i-1] + (nums[i-1]==1? 1: -1);
+    unordered_map<int, int> mp;
+    for(int i = 2; i <= n; ++i) // preSum[0] = 0;
+    {
+        if(!mp.count(preSum[i-2])) mp.insert(make_pair(preSum[i-2], i-2));
+        if(mp.count(preSum[i])) res = max(res, i - mp[preSum[i]]);
+    }
+
+    return res;
+}
+
+// 石子游戏
+bool Solution::stoneGame(vector<int>& piles)
+{
+    int n = piles.size();
+    int f[n+2][n+2];
+    memset(f, 0, sizeof(f));
+    for(int i = 1; i <= n; i++)
+    {
+        for(int l = 1; l + i - 1 <= n; l++)
+        {
+            int r = l + i - 1; //计算右端点
+            int a = piles[l - 1] - f[l + 1][r];
+            int b = piles[r - 1] - f[l][r - 1];
+            f[l][r] = max(a, b);
+        }
+    }
+    return f[1][n] > 0;
+}
+
+// 根据字符出现的频率排序
+string Solution::frequencySort(string s) {
+
+}
+
+// 错误的集合
+vector<int> Solution::findErrorNums(vector<int>& nums) {
+    vector<int> res(2, 0);
+
+    for (int i = 0; i < nums.size(); ++i)
+    {
+        if(nums[nums[i] - 1] != nums[i])
+            swap(nums[nums[i] - 1], nums[i]);
+    }
+
+    for (int i = 0; i < nums.size(); ++i)
+    {
+        if (nums[i] != i + 1)
+        {
+            res[1] = i + 1;
+            res[0] = nums[i];
+        } 
+    }
+
+    return res;
+}
+
+// 和相同的二元子数组
+int Solution::numSubarraysWithSum(vector<int>& nums, int goal) {
+    // 滑动窗口
+    int cnt = 0;
+    int res = 0;
+    int right = nums.size() - 1;
+
+    for (int p1 = 0, p2 = 0; p2 <= right && p1 <= p2; )
+    {
+        if(cnt < goal)
+        {
+            cnt += nums[p2++];
+        }
+        else if (cnt == goal)
+        {
+            ++res;
+            ++p2;  
+        }
+        else if (cnt > goal)
+        {
+            cnt -= nums[p1++];
+        }
+    }
+
+    return res;
 }

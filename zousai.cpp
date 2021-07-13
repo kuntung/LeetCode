@@ -74,10 +74,18 @@ void testMKAverage()
                             // [5] 的平均值等于 5/1 = 5 ，故返回 5
 }
 
+int init(int a, int b)
+{
+    // return a+b;
+}
 int main()
 {
+    int res = 0;
+    cout << "res is " << res << endl;
+    res = init(5,6);
+    cout << "new res is " << res << endl;
     // test();
-    testMKAverage();
+    // testMKAverage();
     
     return 0;
 }

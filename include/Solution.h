@@ -61,7 +61,16 @@ public:
     int coinChange(vector<int>& coins, int amount); //零钱兑换
     int getImportance(vector<Employee*> employees, int id); //员工的重要性
     int reverse(int x); //整数反转
-
+    bool isCousins(TreeNode* root, int x, int y); //二叉树的堂兄弟节点
+    vector<string> topKFrequent(vector<string>& words, int k); //前K个高频词
+    int countTriplets(vector<int>& arr); //形成两个异或相等数组的三元组数目
+    int kthLargestValue(vector<vector<int>>& matrix, int k); //找出第K大的异或坐标值
+    bool checkSubarraySum(vector<int>& nums, int k); //连续的子数组和
+    int findMaxLength(vector<int>& nums); // 连续数组
+    bool stoneGame(vector<int>& piles); // 石子游戏
+    string frequencySort(string s); // 根据字符出现的频率排序
+    vector<int> findErrorNums(vector<int>& nums); // 错误的集合
+    int numSubarraysWithSum(vector<int>& nums, int goal); // 和相同的二元子数组
 public:
     void printVec()
     {
@@ -91,4 +100,5 @@ private:
     vector<int> res;
     deque<TreeNode*> dq;
     unordered_map<int, Employee*> mp;
+    TreeNode* root;
 };
